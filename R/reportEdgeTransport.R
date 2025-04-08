@@ -137,16 +137,17 @@ reportEdgeTransport <- function(folderPath = file.path(".", "EDGE-T"), data = NU
                           seq(1990, 2060, by = 5),
                           seq(2070, 2110, by = 10),
                           2130, 2150)
+
     REMINDinputData <- reportREMINDinputVarSet(fleetESdemand        = baseVarSet$ext$fleetESdemand,                     # nolint: object_name_linter
                                                fleetFEdemand        = baseVarSet$ext$fleetFEdemand,
                                                fleetEnergyIntensity = baseVarSet$int$fleetEnergyIntensity,
                                                fleetCapCosts        = baseVarSet$int$fleetCost[variable == "Capital costs"],
                                                combinedCAPEXandOPEX = data$combinedCAPEXandOPEX,
                                                scenSpecLoadFactor   = data$scenSpecLoadFactor,
+                                               scenSpecAnnualMileage= data$scenSpecAnnualMileage, ###
                                                scenSpecPrefTrends   = data$scenSpecPrefTrends,
                                                scenSpecEnIntensity  = data$scenSpecEnIntensity,
                                                initialIncoCosts     = data$initialIncoCosts,
-                                               annualMileage        = data$scenSpecAnnualMileage, ###
                                                timeValueCosts       = data$timeValueCosts,
                                                hybridElecShare      = data$hybridElecShare,
                                                demScen              = data$demScen,
