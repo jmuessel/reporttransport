@@ -66,6 +66,7 @@ reportEdgeTransport <- function(folderPath = file.path(".", "EDGE-T"), data = NU
                    "combinedCAPEXandOPEX",
                    "scenSpecEnIntensity",
                    "scenSpecLoadFactor",
+                   "scenSpecAnnualMileage",
                    "fleetSizeAndComposition",
                    "ESdemandFVsalesLevel")
   if (isREMINDinputReported) {
@@ -77,7 +78,7 @@ reportEdgeTransport <- function(folderPath = file.path(".", "EDGE-T"), data = NU
     filesToLoad <- c(filesToLoad, add[!add %in% filesToLoad])
 
     if (isTransportExtendedReported) {
-      add <- c("population", "GDPppp", "GDPpcPPP", "GDPpcMER","GDPMER", "annualMileage", "energyIntensityRaw",
+      add <- c("population", "GDPppp", "GDPpcPPP", "GDPpcMER","GDPMER", "annualMileageRaw", "energyIntensityRaw",
                "loadFactorRaw", "CAPEXother", "nonFuelOPEXother", "nonFuelOPEXtrackedFleet", "subsidies",
                "timeValueCosts", "scenSpecPrefTrends", "initialIncoCosts")
       filesToLoad <- c(filesToLoad, add[!add %in% filesToLoad])
@@ -145,7 +146,7 @@ reportEdgeTransport <- function(folderPath = file.path(".", "EDGE-T"), data = NU
                                                scenSpecPrefTrends   = data$scenSpecPrefTrends,
                                                scenSpecEnIntensity  = data$scenSpecEnIntensity,
                                                initialIncoCosts     = data$initialIncoCosts,
-                                               annualMileage        = data$annualMileage,
+                                               annualMileage        = data$scenSpecAnnualMileage, ###
                                                timeValueCosts       = data$timeValueCosts,
                                                hybridElecShare      = data$hybridElecShare,
                                                demScen              = data$demScen,
