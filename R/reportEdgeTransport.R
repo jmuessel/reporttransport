@@ -131,6 +131,17 @@ reportEdgeTransport <- function(folderPath = file.path(".", "EDGE-T"), data = NU
     data <- c(data, addFiles)
   }
 
+  if (isTransportReported && is.null(data$population)) {
+    population <- rmndt::magpie2dt(
+      gdx2::readGDX(data$gdxPath, "pm_pop", restoreZeros = FALSE),
+      yearcol = "period", regioncol = "region"
+    )
+    population[, value := value * 1e3]
+    population[, `:=`(variable = "Population", unit = "million")]
+    population[, "data" := NULL]
+    data$population <- population
+  }
+
 
   #########################################################################
   ## Report output variables
