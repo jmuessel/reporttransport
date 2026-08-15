@@ -73,11 +73,11 @@ reportEdgeTransport <- function(folderPath = file.path(".", "EDGE-T"), data = NU
    filesToLoad <- c(filesToLoad, add[!add %in% filesToLoad])
   }
   if (isTransportReported) {
-    add <- c("upfrontCAPEXtrackedFleet")
+    add <- c("upfrontCAPEXtrackedFleet", "population", "GDPppp")
     filesToLoad <- c(filesToLoad, add[!add %in% filesToLoad])
 
     if (isTransportExtendedReported) {
-      add <- c("population", "GDPppp", "GDPpcPPP", "GDPpcMER","GDPMER", "annualMileage", "energyIntensityRaw",
+      add <- c("GDPpcPPP", "GDPpcMER", "GDPMER", "annualMileage", "energyIntensityRaw",
                "loadFactorRaw", "CAPEXother", "nonFuelOPEXother", "nonFuelOPEXtrackedFleet", "subsidies",
                "timeValueCosts", "scenSpecPrefTrends", "initialIncoCosts")
       filesToLoad <- c(filesToLoad, add[!add %in% filesToLoad])
