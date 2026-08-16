@@ -1,10 +1,10 @@
 #' Calculate shares from aggregated reporting variables
 #'
-#' @param dt Data table containing reporting variables.
+#' @param dt  containing reporting variables.
 #' @param shareGroups Named list of denominator variables and their categories.
 #' @param tolerance Numerical tolerance for the share check.
 #'
-#' @returns Data table containing the calculated share variables.
+#' @returns dt containing the calculated share variables.
 #' @import data.table
 #' @keywords internal
 #' @noRd
