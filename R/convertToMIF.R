@@ -109,16 +109,7 @@ convertToMIF <- function(vars, GDPMER, helpers, scenario, model, isTransportExte
   setnames(regSubsetMap, c("regionCode21", "regionCode12"), c("region", "aggrReg"))
 
   if (!is.null(population)) {
-    if (all(unique(regSubsetMap$region) %chin% population$region)) {
-      population <- rbind(
-        population,
-        as.data.table(aggregate_map(population, regSubsetMap, by = "region"))
-      )
-    }
-    populationWorld <- population[, .(value = sum(value)),
-                                  by = setdiff(names(population), c("region", "value"))]
-    populationWorld[, region := "World"]
-    population <- rbind(population, populationWorld, use.names = TRUE)
+    population <- aggregatePopulation(population, regSubsetMap)
   }
 
   regSubsetDataExt <- lapply(vars$ext, function(x, regSubsetMap) {
